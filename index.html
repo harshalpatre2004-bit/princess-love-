@@ -150,7 +150,86 @@ setTimeout(type,35);
 }
 
 }
+<style>
 
+.gallery{
+display:flex;
+overflow-x:auto;
+gap:15px;
+padding:20px;
+margin-top:30px;
+}
+
+.gallery img{
+width:220px;
+height:300px;
+object-fit:cover;
+border-radius:20px;
+box-shadow:0 0 20px rgba(255,255,255,.5);
+transition:.4s;
+}
+
+.gallery img:hover{
+transform:scale(1.08);
+}
+
+.heart{
+position:fixed;
+top:-30px;
+font-size:25px;
+animation:fall linear forwards;
+}
+
+@keyframes fall{
+
+to{
+
+transform:translateY(110vh);
+
+}
+
+}
+
+</style>
+
+<h2 style="margin-top:40px;">📸 Our Beautiful Memories ❤️</h2>
+
+<div class="gallery">
+
+<img src="photos/1.jpg">
+<img src="photos/2.jpg">
+<img src="photos/3.jpg">
+<img src="photos/4.jpg">
+<img src="photos/5.jpg">
+<img src="photos/6.jpg">
+<img src="photos/7.jpg">
+<img src="photos/8.jpg">
+
+</div>
+
+<script>
+
+function createHeart(){
+
+const h=document.createElement("div");
+
+h.className="heart";
+
+h.innerHTML="❤️";
+
+h.style.left=Math.random()*100+"vw";
+
+h.style.animationDuration=(3+Math.random()*4)+"s";
+
+document.body.appendChild(h);
+
+setTimeout(()=>h.remove(),7000);
+
+}
+
+setInterval(createHeart,250);
+
+</script>
 </script>
 
 </body>
