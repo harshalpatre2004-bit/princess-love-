@@ -227,7 +227,30 @@ setTimeout(()=>h.remove(),7000);
 
 }
 
-setInterval(createHeart,250);
+setInterval(createHeart,250);// ❤️ Anniversary Timer
+const startDate = new Date("2024-08-22T00:00:00");
+
+const timer = document.createElement("h2");
+timer.style.marginTop = "30px";
+timer.style.fontSize = "28px";
+timer.style.color = "#fff";
+document.getElementById("main").appendChild(timer);
+
+function updateTimer() {
+    const now = new Date();
+    const diff = now - startDate;
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+
+    timer.innerHTML =
+        `❤️ Together for ${days} Days ${hours} Hours ${minutes} Minutes ${seconds} Seconds ❤️`;
+}
+
+updateTimer();
+setInterval(updateTimer, 1000);
 
 </script>
 </script>
